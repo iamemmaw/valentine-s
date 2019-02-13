@@ -180,7 +180,7 @@
             var currscore = parseInt($('score').innerHTML);
             var newscore =  currscore + 1;
             $('score').innerHTML = newscore;
-            if(newscore == 57){
+            if(newscore == 3){
                 egg();
             }
             if(newscore % 5 == 0){
@@ -199,12 +199,17 @@
         let divTyping = document.getElementById('eggtext')
         let i = 0,
         timer = 0,
-        str = '用JS实现动态打字效果'
+        str = '你竟然真的玩这个沙雕东西点了57下！<br> 情人节快乐呀。 想想还是做点什么，虽然炒鸡沙雕而且各种搬别人的轮子拼起来（笑。 <br> 我感觉我好像说过很多次，但是还是很感谢你这么长时间的陪伴，私心希望一直走下去（虽然我也开始怀疑不知道能不能办到。反正希望多少年以后你还能记得，有个又冒冒失失又暴躁又色情又没有安全感的幼稚鬼偷偷这么给你表白。爱到不计得失失去理智。<br> 我超爱你的。你知道不。你知道不。（我大概又困又感冒脑阔不清楚了 <br> ❤️'
 
         function typing () {
             if (i <= str.length) {
-              divTyping.innerHTML = str.slice(0, i++) + '_'
-              timer = setTimeout('typing()', 200)
+              //if(str[i+] == '\\') {
+                //i = i + 2;
+                //divTyping.innerHTML = str.slice(0, i) + '_'
+              //} else {
+                divTyping.innerHTML = str.slice(0, i++) + '_'
+                timer = setTimeout('typing()', 100)
+                //}
             }
             else {
               divTyping.innerHTML = str//结束打字,移除 _ 光标
