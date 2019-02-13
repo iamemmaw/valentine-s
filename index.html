@@ -93,7 +93,7 @@
         // 游戏结束
         function fail(){
             clearInterval(clock);
-            //confirm('你的最终得分为 ' + parseInt($('score').innerHTML) );
+            confirm('辣鸡！你说你是不是故意的！你的最终得分为 ' + parseInt($('score').innerHTML)+'！！！' );
         }
 
         // 创建div, className是其类名
@@ -161,7 +161,7 @@
 
         // 加速函数
         function speedup(){
-            speed += 0.5;
+            speed += 0.4;
             if(speed == 15){
                 alert('你超神了');
             }
@@ -183,7 +183,7 @@
             if(newscore == 57){
                 egg();
             }
-            if(newscore % 5 == 0){
+            if(newscore % 2 == 0){
                 speedup();
             }
         }
@@ -192,6 +192,7 @@
             document.getElementById("main").style.display="none";
             document.getElementById("score").style.display="none";
             document.getElementById("scoretext").style.display="none";
+            clearInterval(clock);
 
             typing();
         }
@@ -199,7 +200,7 @@
         let divTyping = document.getElementById('eggtext')
         let i = 0,
         timer = 0,
-        str = '你竟然真的玩这个沙雕东西点了57下！<br> 情人节快乐呀。 想想还是做点什么，虽然炒鸡沙雕而且各种搬别人的轮子拼起来（笑。 <br> 我感觉我好像说过很多次，但是还是很感谢你这么长时间的陪伴，私心希望一直走下去（虽然我也开始怀疑不知道能不能办到。反正希望多少年以后你还能记得，有个又冒冒失失又暴躁又色情又没有安全感的幼稚鬼偷偷这么给你表白。爱到不计得失失去理智。<br> 我超爱你的。你知道不。你知道不。（我大概又困又感冒脑阔不清楚了 <br> ❤️'
+        str = '你竟然真的玩这个沙雕东西点了57下！<br> 情人节快乐呀。 想想还是做点什么，虽然炒鸡沙雕而且各种搬别人的轮子拼起来（笑。 <br> 我感觉我好像说过很多次，但是还是很感谢你这么长时间的陪伴，私心希望一直走下去（虽然我也开始怀疑不知道能不能办到。反正希望多少年以后你还能记得，有个又冒冒失失又暴躁又色情又没有安全感的幼稚鬼偷偷这么给你表白。爱到不计得失失去理智。<br> 我超爱你的。你知道不。你知道不。（我大概又困又感冒脑阔不清楚了 <br> ❤️  '
 
         function typing () {
             if (i <= str.length) {
@@ -214,7 +215,16 @@
             else {
               divTyping.innerHTML = str//结束打字,移除 _ 光标
               clearTimeout(timer)
+              continuegame();
             }
+        }
+
+        function continuegame(){
+            document.getElementById("main").style.display="";
+            document.getElementById("score").style.display="";
+            document.getElementById("scoretext").style.display="";
+            document.getElementById("eggtext").style.display="none";
+            clock = window.setInterval('move()', 30);
         }
 
     init();
